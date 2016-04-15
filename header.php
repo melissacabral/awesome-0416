@@ -31,19 +31,26 @@
 				</a>
 			</h1>
 			<h2 class="site-description"> <?php bloginfo('description'); ?> </h2>
-			<nav>
-				<ul class="nav">
-					<?php wp_list_pages( array(
-						'depth' => 1,
-						'title_li' => '',
-						) ); ?>
-					</ul>
-				</nav>
+			
+			<?php 
+			//don't forget to register menu locations in functions.php
+			wp_nav_menu( array(
+				'theme_location' => 'main_menu', //registered in functions.php
+				'fallback_cb' => 'awesome_menu_fallback', // fallback function
+				'container' => 'nav', 					//wrap with <nav>
+				'menu_class' => 'nav', 					//<ul class="nav">
+			) ); ?>
+
 		</div><!-- end .top-bar -->
 		
-		<ul class="utilities">
-			<li><a href="/contact-us/">Contact Us</a></li>
-			<li><a href="/location/">Location</a></li>
-		</ul>
+		<?php 
+			//don't forget to register menu locations in functions.php
+			wp_nav_menu( array(
+				'theme_location' => 'utilities', //registered in functions.php
+				'fallback_cb' => false, 		//turn off the fallback 
+				'container' => false, 			//no container
+				'menu_class' => 'utilities', 	//<ul class="utilities">
+			) ); ?>
+
 		<?php get_search_form(); //includes searchform.php if it exists, if not, this outputs the default search bar ?>	
 	</header>

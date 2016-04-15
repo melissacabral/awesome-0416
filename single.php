@@ -23,6 +23,15 @@
 				}
 				 ?>
 			</div>
+			
+			<?php 
+			//if the post has <!--nextpage--> breaks
+			wp_link_pages( array(
+					'before' => '<div class="pagination">Continue reading this post: ',
+					'after' => '</div>',
+					'next_or_number' => 'next',
+				) );  ?>
+			
 			<div class="postmeta"> 
 				<span class="author"> Posted by: <?php the_author(); ?></span>
 				<span class="date"><a href="<?php the_permalink(); ?>"><?php the_date(); ?></a></span>
@@ -36,6 +45,9 @@
 		<?php comments_template(); ?>
 
 		<?php endwhile; ?>
+
+		<?php awesome_pagination(); ?>
+
 	<?php else: ?>
 
 	<h2>Sorry, no posts found</h2>

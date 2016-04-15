@@ -33,6 +33,9 @@
 		</article><!-- end post -->
 
 		<?php endwhile; ?>
+
+		<?php awesome_pagination(); //defined in functions.php ?>
+
 	<?php else: ?>
 
 	<h2>Sorry, no posts found</h2>
