@@ -84,7 +84,7 @@ body {
 	
 }
 #wrapper{
-	background-color: #565552;
+	background-color: rgba(0,0,0,.5);
 	margin:2% auto;
 	padding:0 2%;
 	max-width:70em;}
@@ -771,6 +771,21 @@ footer#colophon .widget ul li {
 	float:right;
 	margin-left:1em;
 }
+/*error 404*/
+.error404 #content{
+font-size:120%;
+}
+.error404 p{
+	margin:1em 0;
+}
+.error404 #content #s{
+	width:80%;
+	display: inline-block;
+}
+.error404 #content #searchsubmit{
+	width:20%;
+	display: inline-block;
+}
 /*
 TODO: Add required WP styles
 http://codex.wordpress.org/CSS
@@ -925,6 +940,11 @@ blockquote:before{
 }
 .format-quote .hentry {
 	width:100%;
+}
+
+.format-video{
+	background-color: tomato;
+	padding:0 1em 1em;
 }
 /* 
 ==Gallery
@@ -1118,6 +1138,35 @@ dt {
 /*
 ==misc tags
 */
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
 abbr,
 acronym {
 	border-bottom:dotted 1px #CCC;
