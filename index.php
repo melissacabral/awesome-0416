@@ -15,8 +15,8 @@
 			<?php the_post_thumbnail('thumbnail'); //don't forget to activate in functions ?>
 			<div class="entry-content">
 				<?php 
-				//if viewing a single post or page, show full content. otherwise, show the short content (excerpt)
-				if( is_singular() ){
+				//if the post is video format, show full content. otherwise, show the short content (excerpt)
+				if( is_singular() OR has_post_format('video') ){
 					the_content();
 				}else{
 					the_excerpt();

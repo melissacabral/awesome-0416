@@ -3,7 +3,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width" />
-	<title><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></title>
+
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/styles/reset.css" />
@@ -16,6 +16,14 @@
 <body <?php body_class(); ?>>	
 	<div id="wrapper">
 	<header role="banner">
+
+		<?php 
+		//Custom Logo Display.
+		//this is a new feature, so check if it is available first
+		if( function_exists('the_custom_logo') ){
+			the_custom_logo(); //don't forget to add theme support 
+		}?>
+
 		<div class="top-bar clearfix">
 			<h1 class="site-name">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ) ?>" rel="home"> 
