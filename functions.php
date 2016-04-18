@@ -112,4 +112,48 @@ function awesome_pagination(){
 		</section>
 	<?php 
 }
+
+/**
+ * Create widget areas (dynamic sidebars)
+ */
+add_action( 'widgets_init', 'awesome_widget_areas' );
+function awesome_widget_areas(){
+	register_sidebar(array(
+		'name' 			=> 'Home Area',
+		'id' 			=> 'home-area',
+		'description' 	=> 'Appears on the front page of the site',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title' 	=> '</h3>',
+	));
+	register_sidebar(array(
+		'name' 			=> 'Blog Sidebar',
+		'id' 			=> 'blog-sidebar',
+		'description' 	=> 'Appears alongside blog posts and archives',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title' 	=> '</h3>',
+	));
+	register_sidebar(array(
+		'name' 			=> 'Page Sidebar',
+		'id' 			=> 'page-sidebar',
+		'description' 	=> 'Appears alongside static pages',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title' 	=> '</h3>',
+	));
+	register_sidebar(array(
+		'name' 			=> 'Footer Area',
+		'id' 			=> 'footer-area',
+		'description' 	=> 'Appears at the bottom of every screen',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title' 	=> '</h3>',
+	));
+	
+}
 //no close PHP
