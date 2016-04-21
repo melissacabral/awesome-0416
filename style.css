@@ -1315,9 +1315,9 @@ RSS Feed Image
 	text-align:center;
 	clear:none;
 }
-.post-type-archive-product .thumbnail,
-.tax-brand .thumbnail,
-.tax-feature .thumbnail{
+.post-type-archive-product .wp-post-image,
+.tax-brand .wp-post-image,
+.tax-feature .wp-post-image{
 	width:auto;
 	margin:0;
 	padding:0;
