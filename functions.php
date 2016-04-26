@@ -5,6 +5,13 @@ that is related to look & feel.
 WordPress will automatically load it before all template files
  */
 
+//max-width for automatic embeds. required by theme check. 
+//set it to the width of your main column at its widest. 
+if ( ! isset( $content_width ) ) $content_width = 690;
+
+//allows you to style the text editor with editor-style.css
+add_editor_style();
+
 //activate "sleeping features"
 add_theme_support('post-thumbnails');
 
