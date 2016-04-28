@@ -5,7 +5,15 @@
 		if( have_posts() ): ?>
 		<?php while( have_posts() ): the_post(); ?>
 
-		<?php the_post_thumbnail('big-banner'); //don't forget to activate in functions ?>
+		<?php 
+		//if the rad_slider plugin exists, show it. otherwise, show a default banner
+		if( function_exists('rad_slider') ){
+			rad_slider();
+		}else{
+			the_post_thumbnail('big-banner'); 
+		}
+
+		?>
 		
 		<article id="post-<?php the_ID(); ?>" 
 		<?php post_class('cf clearfix'); ?>>	
@@ -36,6 +44,11 @@
 	<p>Try using the search bar instead</p>
 
 	<?php endif;  //end THE LOOP ?>
+
+
+	<section class="featured-content">		
+		<?php awesome_products(6, 'Newest Products'); //custom function to show products! ?>
+	</section>
 
 </main><!-- end #content -->
 

@@ -55,6 +55,38 @@
 
 	<?php endif;  //end THE LOOP ?>
 
+	<?php //show 3 posts in the same category as this post.
+	//what category is this post in?
+	$cats = wp_get_post_categories( $post->ID );
+
+	$related_query = new WP_Query( array(
+		'cat' 			 		=> $cats[0], //the first category of this post
+		'post__not_in'			=> array( $post->ID ),  //omit THIS post
+		'posts_per_page' 		=> 3,
+		'ignore_sticky_posts' 	=> 1,
+	) );
+	if( $related_query->have_posts() ){
+	?>
+
+	<section class="related-posts">
+		<h3>Other posts you might like:</h3>
+		<ul>
+		<?php while( $related_query->have_posts() ){
+				$related_query->the_post(); ?>
+			<li>
+				<a href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail( 'thumbnail' ); ?>
+					<h4><?php the_title(); ?></h4>
+				</a>
+			</li>
+			<?php }//end while ?>
+		</ul>
+	</section>
+	<?php 
+	} //end if
+	wp_reset_postdata();
+	//end of custom query for related posts ?>
+
 </main><!-- end #content -->
 
 <?php get_sidebar(); //include sidebar.php ?>

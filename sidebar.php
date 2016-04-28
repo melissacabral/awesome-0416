@@ -1,5 +1,9 @@
 <aside id="sidebar"> 
 
+	<section class="widget">
+		<?php awesome_products(4, 'Shop Now!'); ?>
+	</section>
+
 	<?php 
 	// if there are widgets in the blog sidebar, show them. 
 	// otherwise show some fake widgets
